@@ -10,6 +10,7 @@ import Confirm from './components/Confirm/confirm.jsx';
 import Navbar from './components/Navbar/navbar.jsx';
 import Gym from "./components/Gym/gym";
 import Contact from "./components/Contact/contact";
+import Footer from "./components/Footer/footer";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/contact" element={<PrivateRoute element={Contact} />} />
           <Route path="/gym" element={<PrivateRoute element={Gym} />} />
       </Routes>
+        <Footer />
     </Router>
   );
 }

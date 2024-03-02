@@ -2,6 +2,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 90%; /* Adjust the width as needed */
+	max-width: 1200px; /* Set a maximum width to ensure it doesn't get too wide on large screens */
+	margin: auto; /* Center the section */
 }
 
 .content-block {
@@ -23,10 +26,37 @@
 
 .img-left {
 	flex-direction: row;
+	width: 800px;
+	height: 300px;
 }
 
 .img-right {
 	flex-direction: row-reverse;
+	width: 800px;
+	height: 300px;
 }
+@media (max-width: 768px) {
+	.content-block {
+		flex-direction: column; /* Stack image and text vertically on smaller screens */
+		margin-bottom: 100px;
+	}
 
-/* Continue with previous styles */
+	.content-block img {
+		width: 40%; /* Adjust image width for smaller screens */
+		margin: auto; /* Center the image */
+	}
+
+	.content-block p {
+		width: 400px;
+		margin-top: 10px;
+	}
+
+	.img-left, .img-right {
+		flex-direction: column; /* Ensure the direction is column for both classes */
+	}
+
+	.img-right{
+		padding-bottom: 30px;
+		padding-top: 30px;
+	}
+}

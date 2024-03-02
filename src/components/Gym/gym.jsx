@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css'
-import GymImage1 from '../../images/cool-background.png'; // Add your images
-import GymImage2 from '../../images/cool-background.png';
+import GymImage1 from '../../images/gym2.png'; // Add your images
+import GymImage2 from '../../images/gym1.png';
 // Import more images as needed
 
 // Define an array for the image gallery for easy mapping

@@ -2,6 +2,7 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    margin-bottom: 235px;
 }
 
 .contact-form {
@@ -26,14 +27,43 @@
 }
 
 .submit-button {
-    background-color: #007bff;
+    background-color: black;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%; /* Adjust this as needed */
+    max-width: 625px; /* Use max-width to control the button's maximum size */
+    /* Ensure the button's width is not wider than the form itself */
+}
+
+.error_msg {
+    width: 370px;
+    padding: 15px;
+    margin: 5px 0;
+    font-size: 14px;
+    background-color: #f34646;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .submit-button:hover {
     background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .contact-page {
+        margin-bottom: 20px; /* Reduced bottom margin */
+    }
+
+    .form-group input, .form-group textarea{
+        width: 400px;
+    }
+
+    .submit-button {
+        width: auto; /* Adjust button width for smaller screens */
+    }
 }

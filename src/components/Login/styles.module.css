@@ -1,5 +1,5 @@
 body {
-  background: url('../../images/cool-background.png') no-repeat center center fixed; 
+	background: url('../../images/background.png') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -49,8 +49,9 @@ body {
 	background-color: white;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
-  background: url('../../images/cool-background.png') no-repeat center center fixed; 
+	background: url('../../images/background.png') no-repeat center center fixed;
   background-size: cover;
+	margin-bottom: 425px;
 }
 
 .form_container {

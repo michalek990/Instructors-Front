@@ -2,26 +2,39 @@ import React, { useState } from 'react';
 import './styles.css' // Assuming you have a CSS file for styling
 
 const ContactPage = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
-    });
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState(null);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log(formData); // For demonstration
-        alert('Thank you for your message!');
-        setFormData({ name: '', email: '', message: '' }); // Reset form
+        try {
+            const response = await fetch('http://localhost:8080/api/v1/auth/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email }),
+            });
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('isAcitve', data.isActive)
+                window.location.href = '/';
+            } else {
+                setError('Server error. Try after few minutes again :(');
+            }
+        } catch (error) {
+            console.log(error);
+            if (error.response.data.status === 400) {
+                setError("Check your input data");
+            }
+            else if(error.response.data.statusCode === 409){
+                setError(error.response.data.details);
+            }
+            else if(error.response.data.statusCode === 404)
+                setError(error.response.data.details);
+            else if(error.response.data.statusCode === 500)
+                setError(error.response.data.details);
+        }
     };
 
     return (
@@ -33,7 +46,6 @@ const ContactPage = () => {
                     <p><strong>Address:</strong> 123 Example Street, City, Country</p>
                     <p><strong>Phone:</strong> +1 234 567 8900</p>
                     <p><strong>Email:</strong> contact@example.com</p>
-                    {/* Add more contact details as needed */}
                 </div>
                 <form className="contact-form" onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -42,8 +54,6 @@ const ContactPage = () => {
                             type="text"
                             id="name"
                             name="name"
-                            value={formData.name}
-                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -53,8 +63,6 @@ const ContactPage = () => {
                             type="email"
                             id="email"
                             name="email"
-                            value={formData.email}
-                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -63,8 +71,6 @@ const ContactPage = () => {
                         <textarea
                             id="message"
                             name="message"
-                            value={formData.message}
-                            onChange={handleChange}
                             required
                         ></textarea>
                     </div>

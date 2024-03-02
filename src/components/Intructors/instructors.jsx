@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./styles.css"
-import Avatar from "../../images/journalist_741839.png";
+import Avatar from "../../images/instructor.png";
 function Instrcutors() {
   const [instructors, setInstructors] = useState([]);
 
@@ -15,6 +15,28 @@ function Instrcutors() {
         .then(data => console.log(data))
     .catch(error => console.error('Error fetching instructors:', error));
   }, []);
+
+    const handleEditClick = (instructorId) => {
+        navigate(`/edit/${instructorId}`);
+    };
+
+  const deleteInstructor = async (instructorId) => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/v1/instructors/${instructorId}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                console.log('Instructor deleted successfully');
+                window.location.reload(); // Reloads the page
+            } else {
+                console.error('Failed to delete instructor');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
 
     return (
         <div className="instructors-page">
@@ -32,7 +54,8 @@ function Instrcutors() {
                                 passion for sports and physical activity, which naturally evolved into a professional
                                 career after obtaining his certification from a prestigious fitness training
                                 institute.</p>
-                            <br />
+                            <button className="edit-btn">Edit</button>
+                            <button className="delete-btn" onClick={() => deleteInstructor(instructor.id)}>Delete</button>
                         </div>
                     </li>
                 ))}

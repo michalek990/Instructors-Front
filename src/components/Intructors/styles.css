@@ -22,6 +22,24 @@
     margin-bottom: 20px;
 }
 
+.edit-btn, .delete-btn {
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
 .instructor-image {
     width: 100px; /* Adjust as needed */
     height: 100px; /* Adjust as needed */
