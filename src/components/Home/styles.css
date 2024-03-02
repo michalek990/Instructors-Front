@@ -1,0 +1,32 @@
+.content-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.content-block {
+	display: flex;
+	align-items: center;
+	margin: 20px 0;
+}
+
+.content-block img {
+	width: 50%; /* Adjust based on your preference */
+	height: auto;
+	border-radius: 10px; /* Optional for rounded corners */
+}
+
+.content-block p {
+	flex: 1;
+	padding: 0 20px;
+}
+
+.img-left {
+	flex-direction: row;
+}
+
+.img-right {
+	flex-direction: row-reverse;
+}
+
+/* Continue with previous styles */

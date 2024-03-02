@@ -1,0 +1,38 @@
+.decorative-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.gym-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gym-description {
+    margin-bottom: 20px;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 10px; /* Space between images */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Optional: adds rounded corners to images */
+}
+
+.map-container {
+    margin-top: 20px;
+}

@@ -19,7 +19,7 @@ function Login() {
         const data = await response.json();
         localStorage.setItem('token', data.token);
         localStorage.setItem('isAcitve', data.isActive)
-        window.location.href = '/home';
+        window.location.href = '/';
       } else {
         setError('Login failed. Please check your username and password.');
       }

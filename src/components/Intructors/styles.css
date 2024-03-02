@@ -1,0 +1,82 @@
+.body{
+    background: radial-gradient(circle, #535356 10%, transparent 11%),radial-gradient(circle at bottom left, #535356 5%, transparent 6%),radial-gradient(circle at bottom right, #535356 5%, transparent 6%),radial-gradient(circle at top left, #535356 5%, transparent 6%),radial-gradient(circle at top right, #535356 5%, transparent 6%);
+    background-size: 3em 3em;
+    background-color: #070708;
+    opacity: 1
+}
+
+.instructors-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.instructors-list {
+    list-style: none;
+    padding: 0;
+}
+
+.instructor-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.instructor-image {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 20px; /* Adds space between the image and the info */
+}
+
+
+@media only screen and (max-width: 900px) {
+    .navbar .rightSide a {
+        width: 70px;
+    }
+    .navbar .leftSide {
+        padding-left: 50px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar .rightSide a {
+        display: none;
+    }
+
+    .navbar .rightSide {
+        justify-content: flex-end;
+        padding-right: 50px;
+    }
+
+    .navbar .rightSide button {
+        display: inherit;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .navbar .rightSide {
+        position: relative;
+    }
+
+    .hiddenLinks {
+        display: block;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .hiddenLinks a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .hiddenLinks a:hover {
+        background-color: #f1f1f1;
+    }
+}

@@ -20,7 +20,7 @@ function Register() {
       if (response.ok) {
         console.log('Registration successful');
         const data = await response.json();
-        localStorage.setItem('userToken', data.token); 
+        localStorage.setItem('token', data.token);
         localStorage.setItem('isAcitve', data.isActive);
         window.location.href = '/'; 
       } else {
